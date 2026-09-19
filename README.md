@@ -1,58 +1,107 @@
-# Salesforce DX Project
+# Intelligent IT Service & Bug Management System using Salesforce
 
-Salesforce DX is a development approach that brings source-driven development, team collaboration, and continuous integration to the Salesforce Platform. Instead of working directly in an org through a web browser, you work with metadata as source files in a local DX project, track changes in version control, and deploy through automated processes.
+## 📌 Project Overview
 
-This project template gets you started with the tools and structure you need to build Salesforce applications using source control, scratch orgs, and the Salesforce CLI.
+The **Intelligent IT Service & Bug Management System** is a Salesforce-based application designed to manage the complete bug lifecycle, from bug reporting and triaging to developer assignment, tracking, resolution, and closure.
 
-## Prerequisites
+## 🎯 Objectives
 
-Before you start, make sure you have:
+* Centralize bug and customer information.
+* Automate developer assignment for critical bugs.
+* Maintain accurate bug status and resolution details.
+* Provide reports and dashboards for bug monitoring.
 
-- **Salesforce CLI** - Download from [developer.salesforce.com/tools/salesforcecli](https://developer.salesforce.com/tools/salesforcecli). See [Install Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) for details.
-- **VS Code with Salesforce Extension Pack** - See [Installation Instructions](https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/install.html) for details. Includes the Agentforce Vibes extension.
-- **A development org** - Sign up for a free Developer Edition org [here](https://developer.salesforce.com/signup).
-- **Dev Hub enabled** (optional, required to create scratch orgs) - You can enable Dev Hub in your development org under Setup > Dev Hub.  See [Provide Developers Access to Salesforce DX Tools](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_setup_dx_tools.htm).
+## 🛠️ Technologies Used
 
-## Project Structure
+* **Salesforce**
+* Custom Objects & Relationships
+* Record-Triggered Flow
+* Validation Rules
+* Formula Fields
+* **Apex & SOQL**
+* **Lightning Web Components (LWC)**
+* Reports & Dashboards
 
-Your DX project follows this structure:
+## 📦 Custom Objects
 
-- **`force-app/main/default/`** - Your metadata source files live in this default package directory. You can configure additional package directories in the `sfdx-project.json` file.
-- **`config/`** - Scratch org definitions and project settings
-- **`scripts/`** - Automation scripts for common tasks
-- **`sfdx-project.json`** - Project manifest that defines package directories, namespace, API version, and other project-level settings
+The project contains five custom objects:
 
-See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm).
+1. **Customer** – Stores customer information.
+2. **Bug** – Stores bug details, severity, status, and resolution.
+3. **Developer** – Stores developer skills, team, and availability.
+4. **Bug Comment** – Maintains investigation and progress comments.
+5. **Knowledge Article** – Stores solutions and troubleshooting information.
 
-## Get Started
+## ⚙️ Key Features
 
-Ready to start developing? The [Get Started with Salesforce DX](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_get_started_dx.htm) guide walks you through your first project, from creating a scratch org to creating a simple Apex class or LWC to deploying your code to a sandbox.
+### Automated Developer Assignment
 
-## Common Salesforce CLI Commands
+A Record-Triggered Flow automatically assigns an available developer when a **Critical Bug** is created.
 
-Here are common CLI commands that you'll use the most:
+### Data Validation
 
-- `sf org login web`: Authorize an org
-- `sf org open`: Open your org in a browser
-- `sf org create scratch`: Create a scratch org
-- `sf project deploy start`: Deploy metadata to your org
-- `sf project retrieve start`: Retrieve metadata from your org
-- `sf template generate <artifact>`: Scaffold new components, such as Apex classes and triggers, LWC components, Lightning apps, and more
-- `sf apex <command>`: Run Apex tests, run anonymous Apex blocks, and view logs
-- `sf data <command>`: Work with test data
-- `sf alias <command>`: Manage org aliases
-- `sf config <command>`: Configure CLI settings
+Validation rules ensure that a bug cannot be marked **Resolved** or **Closed** without providing a resolution.
 
-## Use Agentforce Vibes to Build Lightning Apps
+### Bug Age Calculation
 
-Transform your ideas into custom Lightning apps that extend CRM workflows directly in Lightning Experience. Through natural conversations with Agentforce Vibes, implement custom objects and fields, complex business logic, and dynamic UI components. See [Build a Lightning App Using Agentforce Vibes](https://developer.salesforce.com/docs/platform/einstein-for-devs/guide/lexapp-overview.html).
+A formula field automatically calculates the number of days a bug has existed.
 
-## Additional Resources
+### Apex & SOQL
 
-- [Agentforce Vibes Developer Guide](https://developer.salesforce.com/docs/platform/einstein-for-devs/guide/einstein-overview.html)
-- [Salesforce CLI Installation Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/)
-- [Salesforce CLI Plugin Development Guide](https://developer.salesforce.com/docs/platform/salesforce-cli-plugin/guide/conceptual-overview.html)
-- [Salesforce VS Code Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
+An Apex controller uses SOQL to retrieve bug records and provides the data to the LWC.
 
+### Lightning Web Component
+
+A custom LWC displays bug records in a table with:
+
+* Bug Number
+* Bug Title
+* Severity
+* Status
+* Assigned Developer
+
+### Reports & Dashboard
+
+Created reports and an **IT Bug Management Dashboard** to monitor:
+
+* Bug Severity
+* Bug Status
+* Developer Workload
+* Bug Type
+* Overall Bug Records
+
+## 🧪 Testing
+
+The application was tested using multiple scenarios:
+
+* Normal bug creation
+* Critical bug with an available developer
+* Critical bug when no developer is available
+* Resolution validation
+* Apex/SOQL and LWC data retrieval
+* Reports and dashboard verification
+
+All implemented features were successfully tested.
+
+## 📂 Project Structure
+
+```text
+IT_Service_Management/
+│
+├── force-app/
+│   └── main/
+│       └── default/
+│           ├── classes/
+│           ├── lwc/
+│           ├── objects/
+│           ├── flows/
+│           ├── reports/
+│           └── dashboards/
+│
+└── README.md
+```
+
+## 👩‍💻 Developed By
+
+**Preethi SS**
+B.E. Computer Science & Engineering
