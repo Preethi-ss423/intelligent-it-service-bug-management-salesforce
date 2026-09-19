@@ -1,0 +1,39 @@
+<template>
+
+    <lightning-card title="Bug Management Panel" icon-name="standard:case">
+
+        <div class="slds-p-around_medium">
+
+            <template if:true={bugs.length}>
+
+                <p class="slds-text-heading_small slds-m-bottom_medium">
+                    Total Bugs: {bugs.length}
+                </p>
+
+                <lightning-datatable
+                    key-field="Id"
+                    data={bugs}
+                    columns={columns}>
+                </lightning-datatable>
+
+            </template>
+
+            <template if:false={bugs.length}>
+
+                <p>No bug records found.</p>
+
+            </template>
+
+            <template if:true={error}>
+
+                <p class="slds-text-color_error">
+                    Error loading bug records.
+                </p>
+
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+</template>
